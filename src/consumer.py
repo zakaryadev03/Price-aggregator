@@ -17,7 +17,7 @@ def main():
     def callback(ch, method, properties, body):
         search_query = json.loads(body)
         print(f"Processing: {search_query}")
-        results = api.search_products(search_query["query"])
+        results = api.search_products(search_query["keyWord"])
         
         # Send to price tracker queue
         if results:
