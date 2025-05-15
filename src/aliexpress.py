@@ -8,7 +8,7 @@ class AliExpressAPI:
     def __init__(self):
         self.base_url = "https://aliexpress-business-api.p.rapidapi.com/textsearch.php"
         self.headers = {
-	        "x-rapidapi-key": "7fc50ec80cmsh707983e8b18bbaep1561a3jsn367bc86e2e67",
+	        "x-rapidapi-key": os.getenv("ALIEXPRESS_API_KEY"),
 	        "x-rapidapi-host": "aliexpress-business-api.p.rapidapi.com"
         }
 
