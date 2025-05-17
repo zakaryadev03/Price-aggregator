@@ -9,7 +9,7 @@ def main():
     channel = connection.channel()
     
     # Declare queue
-    channel.queue_declare(queue="product_searches")
+    channel.queue_declare(queue="product_searches", durable=True)
     
     # Initialize API
     api = AliExpressAPI()

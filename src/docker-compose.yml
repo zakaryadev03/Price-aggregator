@@ -21,55 +21,49 @@ services:
     environment:
       POSTGRES_USER: guest
       POSTGRES_PASSWORD: guest
-      POSTGRES_DB: mydb
+      POSTGRES_DB: pricedb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./price-tracker/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     networks:
       - app_network
   
   aliexpress:
     build:
-      context: ./src/aliexpress/
+      context: ./aliexpress/
       dockerfile: Dockerfile
     container_name: aliexpress
-    ports:
-      - "8000:8000"
     depends_on:
       - rabbitmq
     env_file:
-      - ./src/aliexpress/.env
+      - ./aliexpress/src/.env
     networks:
       - app_network
   
   amazon:
     build:
-      context: ./src/amazon/
+      context: ./amazon/
       dockerfile: Dockerfile
     container_name: amazon
-    ports:
-      - "8001:8000"
     depends_on:
       - rabbitmq
     env_file:
-      - ./src/amazon/.env
+      - ./amazon/.env
     networks:
       - app_network
   
   price-tracker:
     build:
-      context: ./src/price-traker/
+      context: ./price-tracker/
       dockerfile: Dockerfile
     container_name: price-tracker
-    ports:
-      - "8002:8000"
     depends_on:
       - rabbitmq
       - postgres
     env_file:
-      - ./src/price-tracker/.env
+      - ./price-tracker/src/.env
     networks:
       - app_network
-    volumes:
-      - ./src/price-traker:/app
-      - postgres_data:/var/lib/postgresql/data
 
 volumes:
   postgres_data:

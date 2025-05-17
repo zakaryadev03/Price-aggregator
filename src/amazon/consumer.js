@@ -7,8 +7,8 @@ async function start() {
   const conn = await amqp.connect(process.env.RABBITMQ_URL);
   const ch = await conn.createChannel();
 
-  await ch.assertQueue('product_searches', { durable: false });
-  await ch.assertQueue('price_updates',   { durable: false });
+  await ch.assertQueue('product_searches', { durable: true });
+  await ch.assertQueue('price_updates',   { durable: true });
 
   const api = new AmazonAPI();
 
