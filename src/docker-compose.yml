@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"  
+      - "15672:15672" 
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - app_network
+  
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: guest
+      POSTGRES_PASSWORD: guest
+      POSTGRES_DB: mydb
+    networks:
+      - app_network
+  
+  aliexpress:
+    build:
+      context: ./src/aliexpress/
+      dockerfile: Dockerfile
+    container_name: aliexpress
+    ports:
+      - "8000:8000"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - ./src/aliexpress/.env
+    networks:
+      - app_network
+  
+  amazon:
+    build:
+      context: ./src/amazon/
+      dockerfile: Dockerfile
+    container_name: amazon
+    ports:
+      - "8001:8000"
+    depends_on:
+      - rabbitmq
+    env_file:
+      - ./src/amazon/.env
+    networks:
+      - app_network
+  
+  price-tracker:
+    build:
+      context: ./src/price-traker/
+      dockerfile: Dockerfile
+    container_name: price-tracker
+    ports:
+      - "8002:8000"
+    depends_on:
+      - rabbitmq
+      - postgres
+    env_file:
+      - ./src/price-tracker/.env
+    networks:
+      - app_network
+    volumes:
+      - ./src/price-traker:/app
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge
