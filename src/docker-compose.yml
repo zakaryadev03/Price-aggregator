@@ -76,7 +76,7 @@ services:
       - rabbitmq
       - postgres
     env_file:
-      - ./aggregator/src/.env
+      - ./aggregator/.env
     networks:
       - app_network
 
