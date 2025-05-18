@@ -16,10 +16,8 @@ channel.queue_declare(queue="product_searches", durable=True)
 channel.queue_declare(queue="price_updates", durable=True)
 
 
-test_queries = [
-    {"keyWord": "wireless headphones"},
-    {"keyWord": "iphone 15 case"},  
-    {"keyWord": "yoga mat"}             
+test_queries = [ 
+    {"keyWord": "yoga mat"}            
 ]
 
 for query in test_queries:

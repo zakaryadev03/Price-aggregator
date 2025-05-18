@@ -64,6 +64,21 @@ services:
       - ./price-tracker/src/.env
     networks:
       - app_network
+  
+  aggregator:
+    build:
+      context: ./aggregator/
+      dockerfile: Dockerfile
+    container_name: aggregator
+    ports:
+      - "3000:3000"
+    depends_on:
+      - rabbitmq
+      - postgres
+    env_file:
+      - ./aggregator/src/.env
+    networks:
+      - app_network
 
 volumes:
   postgres_data:
