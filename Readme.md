@@ -3,6 +3,9 @@
 ![Docker](https://img.shields.io/badge/Docker-✓-blue?logo=docker)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-✓-orange?logo=rabbitmq)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✓-blue?logo=postgresql)
+![Python](https://img.shields.io/badge/Python-%E2%9C%93-orange?logo=python)
+![Nodejs]([https://img.shields.io/badge/Nodejs-%E2%9C%93-yellow?logo=Nodejs](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white))
+
 
 Real-time product price comparison API aggregating data from Amazon and AliExpress.
 ## Features
@@ -20,6 +23,12 @@ git clone https://github.com/your-repo/price-aggregator.git
 cd price-aggregator
 docker compose up -d
 ```
+the code should load the next environment variables:
+- AMAZON_API_KEY= 'From rapidapi, a free api exist'
+- ALIEXPRESS_API_KEY= 'From rapidapi'
+- RABBITMQ_URL= 'Rabbit url'
+- DATABASE_URL= 'Postgre url'
+
 ## High level Architecture
 ![Workflow](assets/Architecture.png)
 
