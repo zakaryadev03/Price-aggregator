@@ -52,19 +52,6 @@ services:
     networks:
       - app_network
   
-  price-tracker:
-    build:
-      context: ./price-tracker/
-      dockerfile: Dockerfile
-    container_name: price-tracker
-    depends_on:
-      - rabbitmq
-      - postgres
-    env_file:
-      - ./price-tracker/src/.env
-    networks:
-      - app_network
-  
   aggregator:
     build:
       context: ./aggregator/
@@ -88,7 +75,6 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - price-tracker
       - aggregator
       - postgres
       - rabbitmq
