@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const amqp    = require('amqplib');
 const { Pool } = require('pg');
+const cors = require('cors');
 
 const RABBITMQ_URL = process.env.RABBITMQ_URL;
 const DB_URL       = process.env.DATABASE_URL;
@@ -11,6 +12,7 @@ const PRICE_UPDATES_QUEUE = 'price_updates';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // Postgres pool
 const pgPool = new Pool({

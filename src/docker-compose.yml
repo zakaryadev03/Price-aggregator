@@ -71,7 +71,7 @@ services:
       dockerfile: Dockerfile
     container_name: aggregator
     ports:
-      - "3000:3000"
+      - "5000:3000"
     depends_on:
       - rabbitmq
       - postgres
