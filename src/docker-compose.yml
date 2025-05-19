@@ -79,6 +79,23 @@ services:
       - ./aggregator/.env
     networks:
       - app_network
+  
+  frontend:
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - price-tracker
+      - aggregator
+      - postgres
+      - rabbitmq
+      - aliexpress
+      - amazon
+    networks:
+      - app_network
 
 volumes:
   postgres_data:

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'http://aggregator:5000';
 
 export async function searchProducts(keyword) {
   const response = await fetch(`${BASE_URL}/search`, {
