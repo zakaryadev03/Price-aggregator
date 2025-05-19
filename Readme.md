@@ -4,7 +4,7 @@
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-✓-orange?logo=rabbitmq)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-✓-blue?logo=postgresql)
 ![Python](https://img.shields.io/badge/Python-%E2%9C%93-orange?logo=python)
-![Nodejs](https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white)
+![Nodejs](https://img.shields.io/badge/node.js-%E2%9C%93-white?logo=Node.js)
 
 
 Real-time product price comparison API aggregating data from Amazon and AliExpress.
