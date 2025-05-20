@@ -50,4 +50,31 @@ flowchart TD
 - features/*: features/services dev branch
 - release: production ready branch
 
+## Demo
+
+![Demo](assets/demo.jpg)
+
  
+## 🚀 Future Work
+
+- **Implement Full DevOps Lifecycle**  
+  Integrate end-to-end DevOps best practices including Infrastructure as Code (IaC), GitOps workflows, and robust CI/CD pipelines.
+
+- **Multi-Environment Deployment**  
+  Set up automated deployment across multiple environments ( **Staging**, **Production**).
+
+- **Container Orchestration**  
+  Deploy the application using Kubernetes
+
+- **Monitoring and Observability**  
+
+- **Security Enhancements**  
+  - Implement vulnerability scanning for containers (trivy)  
+  - Static code analysis using Sonarqube
+
+- **Performance Optimization**  
+  Optimize backend queries and frontend rendering to improve response time and reduce load latency.
+
+- **Infrastructure Automation**  
+
+
