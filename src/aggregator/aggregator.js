@@ -185,7 +185,7 @@ app.post('/search', async (req, res) => {
 async function start() {
   await startPriceUpdateConsumer();
 
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     console.log(`→ [Aggregator HTTP] Listening on http://localhost:${PORT}`);
   });
