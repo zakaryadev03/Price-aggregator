@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aliexpress-env
+data:
+  ALIEXPRESS_API_KEY=7fc50ec80cmsh707983e8b18bbaep1561a3jsn367bc86e2e67
+  RABBITMQ_URL= amqp://guest:guest@rabbitmq:5672/

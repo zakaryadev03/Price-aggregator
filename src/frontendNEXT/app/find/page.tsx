@@ -9,7 +9,7 @@ import axios from "axios"
 import Loading from "@/components/Loading"
 import Image from "next/image"
 import { Button } from "@/components/button"
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = process.env.APIURL || "http://localhost:5000"
 
 
 function page() {
