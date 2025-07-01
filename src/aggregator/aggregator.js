@@ -140,9 +140,6 @@ app.post('/search', async (req, res) => {
   }
 
   // 2.4. Group rows by title (or by product_id if you trust titles to match exactly)
-  // Then pick best price across platforms for each unique product_id
-  //
-  // For simplicity, let’s group by product_id:
   const grouped = {};
   for (const r of rows) {
     const key = r.product_id;
