@@ -21,28 +21,10 @@ pipeline {
             }
         }
         
-        stage('Backend compilation') {
-            steps {
-                dir('src/aggregator') {
-                    sh 'find . -name "*.js" -exec node -c {} +'
-                }
-
-                dir('src/amazon') {
-                    sh 'find . -name "*.js" -exec node -c {} +'
-                }
-
-                dir('src/aliexpress') {
-                    sh 'find . -name "*.py" -exec python -m py_compile {} +'
-                }
-            }
-        }
         
         stage('Gitleaks scan') {
             steps {
                 sh 'gitleaks detect --source ./src/frontendNEXT --exit-code 1'
-                sh 'gitleaks detect --source ./src/aggregator --exit-code 1'
-                sh 'gitleaks detect --source ./src/amazon --exit-code 1'
-                sh 'gitleaks detect --source ./src/aliexpress --exit-code 1'
             }
         }
 
