@@ -120,6 +120,7 @@ app.post('/search', async (req, res) => {
   await new Promise(resolve => setTimeout(resolve, WAIT_MS));
 
   // 2.3. Query the `products` table for the keyword
+  // Use a simple ILIKE or full‐text match on title.
   const queryText = `
     SELECT platform, product_id, title, price, original_price, currency, discount, image_url, last_updated
     FROM products
@@ -140,6 +141,8 @@ app.post('/search', async (req, res) => {
 
   // 2.4. Group rows by title (or by product_id if you trust titles to match exactly)
   // Then pick best price across platforms for each unique product_id
+  //
+  // For simplicity, let’s group by product_id:
   const grouped = {};
   for (const r of rows) {
     const key = r.product_id;
