@@ -7,7 +7,6 @@ const amqp = require('amqplib');
   const ch   = await conn.createChannel();
   await ch.assertQueue('price_updates', { durable: true });
 
-  // A minimal “fake” Amazon payload:
   const payload = {
     source: 'Amazon',
     data: [
@@ -19,7 +18,7 @@ const amqp = require('amqplib');
         currency:    'USD',
         discount:    '50%',
         image_url:   'https://example.com/test.jpg',
-        platform:    'Amazon'  // this field isn’t used by upsertProduct, but it matches your normalization
+        platform:    'Amazon'
       }
     ]
   };
