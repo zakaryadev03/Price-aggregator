@@ -44,11 +44,8 @@ flowchart TD
     C -->|Consume| B
     B -->|Upsert| F[(PostgreSQL)]
 ```
-## Branching strategy
-
-- master: main dev branch
-- features/*: features/services dev branch
-- release: production ready branch
+## Pipeline d'integration du frontend
+![Frontend_CI](assets/Frontend_CI.png)
 
 ## Demo
 
