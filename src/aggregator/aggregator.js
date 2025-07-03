@@ -138,7 +138,7 @@ app.post('/search', async (req, res) => {
     return res.status(500).json({ error: 'Internal error querying products' });
   }
 
-  // 2.4. Group rows by title (or by product_id if you trust titles to match exactly)
+  // 2.4. Group rows by title
   // Then pick best price across platforms for each unique product_id
   const grouped = {};
   for (const r of rows) {
